@@ -1,0 +1,97 @@
+<style>
+
+body{
+	background-color: #10151B;
+  background: url("https://nga.gov.au/exhibitions/images/currentexhibitions_banner.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+h1 {
+  line-height: .95;
+  color: #191919;
+  font-weight: 900;
+  font-size: 110px;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+body {
+	padding-top: 70px;
+    background-color: #191919;
+}
+
+.jumbotron {
+	color: #284738;
+	background: #dce2df;
+}
+
+.center {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 581px;
+  height: 50%;
+}
+
+.navbar-inverse {
+	background: #284738;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: #e0fff0;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #e0fff0;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+	</style>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+  <a href="#" class="navbar-brand"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> MyGallery</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+            <a class="nav-link" [routerLink]="['/']">Home <span></span></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+            <a class="nav-link" [routerLink]="['/dashboard']">Dashboard </a>
+          </li>
+          <li class="nav-item" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+            <a class="nav-link" [routerLink]="['/profile']">Profile </a>
+          </li>
+          <li class="nav-item" *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+            <a class="nav-link" [routerLink]="['/login']">Login </a>
+          </li>
+          <li class="nav-item" *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+            <a class="nav-link" [routerLink]="['/register']">Register</a>
+          </li>
+          <li class="nav-item" *ngIf="authService.loggedIn()"><a class="nav-link" (click)="onLogoutClick()" href="#">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>

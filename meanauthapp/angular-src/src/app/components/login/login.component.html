@@ -1,0 +1,17 @@
+<h2 class="page-header" style="width: 10%; margin: auto; color: white;">Login</h2>
+<form class="form-signin" (submit)="onLoginSubmit()" style="width: 50%; margin: auto;">
+        <div class="form-group">
+          <label for="Username" style="color: white;">Username</label>
+          <input type="text" class="form-control" placeholder="Enter Username" [(ngModel)]="username" name="username">
+        </div>
+        <div class="form-group">
+        <label for="Password" style="color: white;">Password</label>
+        <input type="password" class="form-control" placeholder=" Enter Password" [(ngModel)]="password" name="password">
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> <span style="color: white;">Remember me</span> 
+          </label>
+        </div>
+        <input class="btn btn-lg btn-primary" type="submit" value="Login">
+</form>

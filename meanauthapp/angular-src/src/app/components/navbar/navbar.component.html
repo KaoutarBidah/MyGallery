@@ -1,0 +1,57 @@
+<style>
+
+  
+  .jumbotron {
+    color: #284738;
+    background: #dce2df;
+  }
+  
+
+  
+  .navbar-inverse {
+    background: #284738;
+  }
+  
+  .navbar-inverse .navbar-nav>li>a {
+    color: #e0fff0;
+  }
+  
+  .navbar-inverse .navbar-brand {
+    color: #e0fff0;
+  }
+  
+  .flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+</style>
+<nav class="navbar navbar-expand-md navbar-inverse  fixed-top">
+  <a href="#" class="navbar-brand"><span class="fa fa-picture-o" aria-hidden="true"></span> MyGallery</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+            <a class="nav-link" [routerLink]="['/']">Home <span></span></a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+            <a class="nav-link" [routerLink]="['/dashboard']">Dashboard </a>
+          </li>
+          <li class="nav-item" *ngIf="authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+            <a class="nav-link" [routerLink]="['/profile']"><i class="fa fa-profile" aria-hidden="true"></i> Profile </a>
+          </li>
+          <li class="nav-item" *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+            <a class="nav-link" [routerLink]="['/login']"><i class="fa fa-sign-in" aria-hidden="true"></i> Login </a>
+          </li>
+          <li class="nav-item" *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+            <a class="nav-link" [routerLink]="['/register']"><i class="fa fa-sign-in" aria-hidden="true"></i>  Register</a>
+          </li>
+          <li class="nav-item" *ngIf="authService.loggedIn()"><a class="nav-link" (click)="onLogoutClick()" href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>  Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>

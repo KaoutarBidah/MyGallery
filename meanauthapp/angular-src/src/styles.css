@@ -1,0 +1,9 @@
+body{
+   margin-top:70px;
+   background-color: #284738;
+ }
+ @media(max-width: 768px){
+   body{
+     margin-top:180px;
+    }
+ }

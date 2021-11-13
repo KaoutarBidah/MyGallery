@@ -1,0 +1,117 @@
+<style type="text/css">
+  body {
+    margin-top: 20px;
+    color: #bcd0f7;
+    background: #1a233a;
+  }
+  .account-settings .user-profile {
+    margin: 0 0 1rem 0;
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+  .account-settings .user-profile .user-avatar {
+    margin: 0 0 1rem 0;
+  }
+  .account-settings .user-profile .user-avatar img {
+    width: 90px;
+    height: 90px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+  }
+  .account-settings .user-profile h5.user-name {
+    margin: 0 0 0.5rem 0;
+  }
+  .account-settings .user-profile h6.user-email {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+  .account-settings .about {
+    margin: 1rem 0 0 0;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .card {
+    background: #272e48;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 0;
+    margin-bottom: 1rem;
+  }
+  .form-control {
+    border: 1px solid #596280;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    font-size: 0.825rem;
+    background: #1a233a;
+    color: #bcd0f7;
+  }
+</style>
+<div class="row gutters" *ngIf="user">
+  <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="account-settings">
+          <div class="user-profile">
+            <div class="user-avatar">
+              <img
+                src="{{user.avatar}}"
+                alt="User Img"
+              />
+            </div>
+            <h5 class="user-name" style="color: white">
+              Username : {{ user.username }}
+            </h5>
+            <h6 class="user-email" style="color: white">
+              Email : {{ user.email }}
+            </h6>
+          </div>
+          <div class="about"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+    <div class="card h-100">
+      <div class="card-body">
+        <div class="row gutters">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <h6 class="mb-3 text-primary" style="color: white !important">
+              Profile Picture
+            </h6>
+          </div>
+
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"></div>
+        </div>
+
+        <div class="row gutters">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <form   [formGroup] = "uploadForm" (ngSubmit)="onSubmit()" method="post">
+                <div class="input-group mb-3">
+       
+                    <div class="custom-file">
+                      <input
+
+                      type="file" name="profile" (change)="onFileSelect($event)"  accept=".jpeg,.png,.jpg" 
+                      class="custom-file-input" id="customFile"
+                      />
+                      <input type="hidden" name="userdt" value="{{ user.username }}" id="userdt">
+                      <label class="custom-file-label" for="inputGroupFile01"
+                        >Choose file</label
+                      >
+                    </div>
+                  </div>
+                  <div class="text-right">
+                      <button type="submit"  class="btn btn-primary">Upload</button>
+                  </div>
+            </form>
+     
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
